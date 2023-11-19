@@ -1,29 +1,56 @@
-import { AxiosInstance } from 'axios';
+import { AxiosInstance, AxiosResponse } from 'axios';
 import { stringify } from 'qs';
+
+import { BASE_URL } from 'api/axios';
 
 import {
   GetMeQueryResponse,
-  GetUsersInfiniteArgs,
-  GetUsersListArgs,
-  GetUsersResponse,
+  GetProductsArgs,
+  GetProductsResponse,
+  GetProductByIdArgs,
+  GetProductByIdResponse,
   // QUERY_TYPE_IMPORTS
 } from './auth.types';
 
 export const authQueries = {
   getCurrentUser: (client: AxiosInstance) => async () => {
-    return (await client.get<GetMeQueryResponse>('/me')).data;
+    return (await client.get<GetMeQueryResponse>(`${BASE_URL}/users/me`)).data;
   },
-  getUsersInfinite:
+  getProducts:
     (client: AxiosInstance) =>
-    async ({ pageParam = '0', count = '5' }: GetUsersInfiniteArgs) => {
-      const queryParams = stringify({ page: pageParam, count: count }, { addQueryPrefix: true });
-      return (await client.get<GetUsersResponse>(`/users/${queryParams}`)).data;
+    async ({ ...Args }: GetProductsArgs) => {
+      const queryArgs = { ...Args };
+
+      if (queryArgs['promo'] === false) {
+        delete queryArgs['promo'];
+      }
+
+      if (queryArgs['active'] === false) {
+        delete queryArgs['active'];
+      }
+
+      const queryParams = stringify(queryArgs, { addQueryPrefix: true });
+      return await client
+        .get<GetProductsResponse>(`${BASE_URL}/products${queryParams}`)
+        .then(function (response: { data: GetProductsResponse }) {
+          return response.data;
+        })
+        .catch(function (error) {
+          return error;
+        });
     },
-  getUsersList:
+  getProductById:
     (client: AxiosInstance) =>
-    async ({ page = '0' }: GetUsersListArgs) => {
-      const queryParams = stringify({ page, count: 5 }, { addQueryPrefix: true });
-      return (await client.get<GetUsersResponse>(`/users/${queryParams}`)).data;
+    async ({ id }: GetProductByIdArgs) => {
+      const queryParams = id;
+      return await client
+        .get<GetProductByIdResponse>(`${BASE_URL}/products/${queryParams}`)
+        .then(function (response: AxiosResponse) {
+          return response.data;
+        })
+        .catch(function (error) {
+          return error;
+        });
     },
   // QUERY_FUNCTIONS_SETUP
 };

@@ -4,35 +4,54 @@ export type LoginMutationArguments = {
 };
 
 export type LoginMutationResponse = {
-  accessToken: string;
-  tokenType: string;
-  expires: number;
-  refreshToken: string;
+  access_token: string;
+  expiresIn: number;
+  user: User;
 };
 
-export type GetMeQueryResponse = {
-  firstName: string;
-  lastName: string;
-  username: string;
-};
+export type GetMeQueryResponse = User;
 
 export type User = {
   id: string;
+  user: string;
+  avatar: string;
+};
+
+export type ProductStructure = {
+  id: string;
   name: string;
+  description: string;
+  rating: number;
+  image: string;
+  promo: boolean;
+  active: boolean;
 };
 
-export type GetUsersResponse = {
-  users: User[];
-  nextPage: number | null;
+export type ProductMeta = {
+  currentPage: number;
+  itemCount: number;
+  itemsPerPage: number;
+  totalItems: number;
+  totalPages: number;
 };
 
-export type GetUsersInfiniteArgs = {
-  pageParam?: string;
-  count?: string;
+export type GetProductsArgs = {
+  search?: string;
+  limit?: number;
+  page?: number;
+  promo?: boolean;
+  active?: boolean;
 };
 
-export type GetUsersListArgs = {
-  page?: string;
+export type GetProductsResponse = {
+  items: ProductStructure[];
+  meta: ProductMeta;
 };
+
+export type GetProductByIdArgs = {
+  id: string;
+};
+
+export type GetProductByIdResponse = ProductStructure;
 
 // API_ACTION_TYPES
