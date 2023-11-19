@@ -117,7 +117,7 @@
     "vite": "4.4.9",
     "vite-plugin-svgr": "3.2.0",
     "vite-tsconfig-paths": "4.2.1",
-    "vitest": "0.34.4",
+    "vitest": "0.34.6",
     "wait-on": "7.0.1"
   },
   "msw": {
