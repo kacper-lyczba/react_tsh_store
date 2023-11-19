@@ -1,8 +1,11 @@
-# [PROJECT_NAME]
+# React TSH Store
 
-[PROJECT_DESCRIPTION]
+This is a store website designed using an implementation of [Vite](https://github.com/vitejs/vite) modified by TSH team.
 
-This project was bootstrapped with [Vite](https://github.com/vitejs/vite) and modified by TSH team.
+Originally planned to set this up on Github Pages; however due to the API working through HTTP, it failed to function that way.
+
+
+
 
 ## Quick Start
 
