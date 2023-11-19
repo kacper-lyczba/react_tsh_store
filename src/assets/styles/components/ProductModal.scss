@@ -60,3 +60,18 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 640px) {
+  .modal {
+    max-width: 320px;
+
+    &_text-wrapper {
+      padding: 12px 24px 24px;
+    }
+
+    &_close {
+      right: 20px;
+      top: 20px;
+    }
+  }
+}
