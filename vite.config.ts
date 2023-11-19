@@ -6,6 +6,7 @@ import { configDefaults } from 'vitest/config';
 
 /* eslint-disable import/no-default-export */
 export default defineConfig({
+  base: '/react_tsh_store/',
   plugins: [
     react({
       jsxImportSource: '@welldone-software/why-did-you-render',
