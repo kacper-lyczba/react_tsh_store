@@ -21,7 +21,7 @@ export const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages,
     const temp = [];
 
     if (totalPages <= 6) {
-      for (let i = 0; i < totalPages; i++) {
+      for (let i = 1; i <= totalPages; i++) {
         temp.push(i);
       }
 
