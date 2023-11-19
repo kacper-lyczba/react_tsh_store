@@ -1,5 +1,4 @@
 {
-  "homepage": "https://www.kacper-lyczba.github.io/react_tsh_store",
   "name": "react_tsh_store",
   "version": "0.2.0",
   "private": true,
@@ -26,9 +25,7 @@
     "e2e:wait-and-run:chrome": "./node_modules/.bin/wait-on http://localhost:1337/ && npm run e2e:run:chrome",
     "e2e:ci:firefox": "npm-run-all -p -r serve:cypress e2e:wait-and-run:firefox",
     "e2e:ci:chrome": "npm-run-all -p -r serve:cypress e2e:wait-and-run:chrome",
-    "prepare": "husky install",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,md}": [
@@ -105,7 +102,6 @@
     "eslint-plugin-ui-testing": "2.0.1",
     "eslint-plugin-vitest": "0.3.1",
     "full-icu": "1.5.0",
-    "gh-pages": "6.1.0",
     "http-server": "14.1.1",
     "husky": "8.0.3",
     "inquirer-directory": "2.2.0",
