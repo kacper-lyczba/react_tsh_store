@@ -1,4 +1,4 @@
-import { AxiosInstance } from 'axios';
+import { AxiosInstance, AxiosResponse } from 'axios';
 
 import {
   LoginMutationArguments,
@@ -8,7 +8,14 @@ import {
 
 export const authMutations = {
   loginMutation: (client: AxiosInstance) => async (body: LoginMutationArguments) => {
-    return (await client.post<LoginMutationResponse>('/authorize', body)).data;
+    await client
+      .post<LoginMutationResponse>('/users/login', body)
+      .then(function (response: AxiosResponse) {
+        return response.data;
+      })
+      .catch(function (error) {
+        return error;
+      });
   },
   // MUTATION_FUNCTIONS_SETUP
 };

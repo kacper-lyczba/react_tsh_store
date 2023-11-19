@@ -1,0 +1,37 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+
+  &_link {
+    margin: 0 8px;
+    text-align: center;
+    font-size: 14px;
+    color: $color-black;
+    line-height: 16px;
+    cursor: pointer;
+
+    &-separator {
+      cursor: default;
+    }
+
+    &--inactive {
+      cursor: default;
+      color: $color-grey--4;
+    }
+
+    &--current {
+      cursor: default;
+      color: $color-blue--1;
+    }
+
+    &--first {
+      margin-right: 24px;
+    }
+
+    &--last {
+      margin-left: 24px;
+    }
+  }
+}

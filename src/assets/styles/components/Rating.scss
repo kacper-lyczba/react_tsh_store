@@ -1,0 +1,19 @@
+.rating {
+  margin-bottom: 12px;
+  display: inline-block;
+
+  &_star {
+    display: inline-block;
+    margin-right: 8px;
+    height: 16px;
+    width: 16px;
+
+    &--0 {
+      color: $color-grey--3;
+    }
+
+    &--1 {
+      color: $color-orange;
+    }
+  }
+}

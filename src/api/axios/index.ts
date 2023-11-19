@@ -6,7 +6,7 @@ import {
   responseSuccessInterceptor,
 } from 'context/apiClient/apiClientContextController/interceptors/responseInterceptors';
 
-export const BASE_URL = import.meta.env.VITE_API_URL;
+export const BASE_URL = 'http://jointshfrontendapi-env-3.eba-z7bd6rn6.eu-west-1.elasticbeanstalk.com';
 
 const axiosClient = axios.create({
   headers: {

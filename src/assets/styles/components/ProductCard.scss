@@ -1,0 +1,79 @@
+.product {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: white;
+  height: 400px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(105%);
+  }
+
+  &_image {
+    position: relative;
+    height: 170px;
+    background-size: cover;
+  }
+
+  &_promo {
+    position: absolute;
+    top: 16px;
+    padding: 4px 16px;
+    background-color: $color-orange;
+    color: white;
+    font-size: 14px;
+  }
+
+  &_details {
+    padding: 16px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 230px;
+  }
+
+  &_title {
+    color: $color-black;
+    font-size: 18px;
+    line-height: 16px;
+  }
+
+  &_description {
+    color: $color-grey--4;
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 8px;
+  }
+
+  &_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+
+    &--active {
+      background-color: $color-blue--1;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background-color: $color-blue--2;
+      }
+    }
+
+    &--inactive {
+      background-color: $color-grey--4;
+    }
+
+    &-label {
+      color: white;
+      text-align: center;
+      font-size: 13px;
+      line-height: 12px;
+    }
+  }
+}

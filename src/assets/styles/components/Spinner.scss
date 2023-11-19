@@ -1,0 +1,17 @@
+@keyframes rotate360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  &_image {
+    position: relative;
+    animation: 1s rotate360 infinite ease-in-out;
+  }
+}
